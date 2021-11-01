@@ -118,15 +118,15 @@ class Swimming(Training):
                 / Swimming.M_IN_KM / self.duration)
 
     def get_spent_calories(self) -> float:
-        return (self.get_mean_speed(
-                ) + Swimming.COF_CAL_1) * Swimming.COF_CAL_2 * self.weight
+        return ((self.get_mean_speed() + Swimming.COF_CAL_1)
+                * Swimming.COF_CAL_2 * self.weight)
 
 
 TRAINING_DICT = {
-        'SWM': Swimming,
-        'RUN': Running,
-        'WLK': SportsWalking
-    }
+    'SWM': Swimming,
+    'RUN': Running,
+    'WLK': SportsWalking
+}
 
 
 def read_package(workout_type: str, data: list) -> Training:
@@ -148,7 +148,7 @@ if __name__ == '__main__':
         ('SWM', [720, 1, 80, 25, 40]),
         ('RUN', [15000, 1, 75]),
         ('WLK', [9000, 1, 75, 180])
-        ]
+    ]
 
     for workout_type, data in packages:
         training = read_package(workout_type, data)
